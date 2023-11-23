@@ -9,4 +9,4 @@ function impure(){
 
 impure(2); // 10
 impure(2); // 20
-console.log(state.value);
+// console.log(state.value);

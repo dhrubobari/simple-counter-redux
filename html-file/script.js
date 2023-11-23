@@ -23,7 +23,12 @@ const decrement = () => {
 
 // initial state
 const initialState = {
-    value: 0
+    value: 0,
+    // object
+    properties: {
+        a: 5,
+        b: 6
+    }
 }
 
 // create reducer function
@@ -38,7 +43,18 @@ function counterReducer(state = initialState, action){
             ...state,
             value: state.value - action.payload,
         };
-    } else {
+    }
+      else if (action.type === ITEST) {
+       const updatedState = {
+        ...state,
+        properties: {
+            ...state.properties,  // properties state copied from state
+            b: state.properties.b + 1  // value of b has increased 1
+        }
+       }
+       return updatedState;
+    }
+    else {
         return state;
     }
 }
